@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/style.css">
+    <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
 <div>
@@ -21,6 +22,14 @@
         <div class="panel-heading">
           <h3 class="panel-title">JavaScript编程入门</h3>
         </div>
+
+        <div  class="container" id="app">
+          <h4>{{personObj.name}}</h4>
+          <p>
+            {{personObj.work.locaitonBase}}
+          </p>
+        </div>
+
         <div class="panel-body">
           <li class="list-group-item">
             <a href="https://github.com/shashawang/words-from-the-heart/blob/master/wangshasha.json">
@@ -39,3 +48,45 @@
 </div>
 </body>
 </html>
+
+
+
+<script>
+//声明并定义变量
+
+var name = '郭键';
+var age = 23;
+var height = 176, weight = 120;
+var isMan = true;
+var student = true;
+var wechat_user_name = 'Jaykey';
+var locaitonBase = '广州';
+
+/*
+* 输出个人信息
+* 输出个人信息时，必要信息要求加辅助提示语
+*/
+
+
+var personObj = {
+  name: name,
+  config: {
+    age: age,
+    height: height,
+    weight: weight,
+    isMan: isMan,
+    student: student
+  },
+  work: {
+    locaitonBase: locaitonBase,
+  },
+};
+
+var app2 = new Vue({
+  el: '#app',   // #app 和html中div#id的 app 对应
+  data: {
+    personObj: personObj
+      // 变量personObj可以在html使用
+  }
+});
+</script>
